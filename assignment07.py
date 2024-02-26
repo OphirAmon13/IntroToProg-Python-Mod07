@@ -26,7 +26,7 @@ students: list = []  # A table of student data
 
 # Define the classes to organize code
 
-class Person:  
+class Person: # Creates the Person object
 
     def __init__(self, first_name: str, last_name: str):
         self.first_name = first_name
@@ -57,7 +57,7 @@ class Person:
         else:
             raise ValueError("The last name should not contain numbers.")
 
-class Student(Person):
+class Student(Person): # Creates the Student object that inherits properties from the Person class
     def __init__(self, first_name: str = "", last_name: str = "", course_name: str = ""):
         super().__init__(first_name, last_name)
         self.course_name = course_name
@@ -113,7 +113,7 @@ class FileProcessor: # Stores all functions that have to do with .json files
             with open(file_name, "w") as file:
                 json.dump(list_of_students, file)
                 for student in list_of_students:
-                    print(f"You have registered {student["first_name"]} {student["last_name"]} for {student["course_name"]}.")
+                    print(f"You have registered {student['first_name']} {student['last_name']} for {student['course_name']}.")
         except Exception as error_message:
             IO.output_error_messages(f"There was an error saving the data to the {file_name} file!", error_message)
         
